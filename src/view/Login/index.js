@@ -28,7 +28,7 @@ export default function Login({ navigation }) {
             </View>
             <Button
                 style='outline'
-                onPress={false}>
+                onPress={() => { navigation.navigate('Index') }}>
                 <Text style={styles.text_primary}>
                     Entrar
                 </Text>
