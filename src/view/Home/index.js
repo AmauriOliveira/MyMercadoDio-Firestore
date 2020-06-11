@@ -12,13 +12,15 @@ export default function Home({ navigation }) {
             <Image source={logo} />
             <Button
                 style='outline'
-                onPress={() => navigation.navigate('Login')}            >
+                onPress={() => navigation.navigate('Login')}>
                 <Text>
                     Entrar
                 </Text>
             </Button>
             <Button>
-                <Text style={styles.text_white}>
+                <Text
+                    style={styles.text_white}
+                    onPress={() => navigation.navigate('Signup')}>
                     Criar Conta
                 </Text>
             </Button>

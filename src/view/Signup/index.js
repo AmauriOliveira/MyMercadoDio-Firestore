@@ -6,7 +6,7 @@ import styles from './styles';
 import logo from '../../../assets/logo.png';
 import Button from '../../components/Button';
 
-export default function Login({ navigation }) {
+export default function Signup() {
     return (
         <View style={styles.container}>
             <Image source={logo} />
@@ -33,13 +33,6 @@ export default function Login({ navigation }) {
                     Entrar
                 </Text>
             </Button>
-            <TouchableOpacity style={styles.redefinePass}>
-                <Text
-                    onPress={() => { navigation.navigate('RedefinePass') }}
-                    style={styles.text_primary}>
-                    Esqueceu a senha?
-                </Text>
-            </TouchableOpacity>
         </View >
     );
 }
