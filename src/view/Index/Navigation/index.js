@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
 import { EvilIcons, Feather } from '@expo/vector-icons';
 
@@ -64,4 +64,3 @@ export default function Navigation() {
     </Stack.Navigator>
   );
 }
-
