@@ -2,8 +2,16 @@
   "expo": {
     "name": "mercado-livre",
     "slug": "mercado-livre",
+    "ios": {
+      "bundleIdentifier": "com.yourcompany.yourappname",
+      "supportsTablet": true,
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "br.com.buscarloja.mytest",
+      "versionCode": 1
+    },
     "platforms": [
-      "ios",
       "android",
       "web"
     ],
@@ -20,9 +28,6 @@
     },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    }
+    ]
   }
 }

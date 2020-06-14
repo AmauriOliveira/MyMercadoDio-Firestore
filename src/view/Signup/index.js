@@ -5,15 +5,23 @@ import styles from './styles';
 
 import logo from '../../../assets/logo.png';
 import Button from '../../components/Button';
+import Firebase from '../../services/firebase';
 
 export default function Signup() {
 
     const [user, setUser] = useState();
     const [pass, setPass] = useState();
 
-   /* async */function handleSignup() {
+    async function handleSignup() {
         if (user, pass) {
-            Alert.alert('Ok', 'tudo certo');
+            Firebase.auth()
+                .createUserWithEmailAndPassword(user, pass)
+                .then((response) => {
+                    Alert.alert('Ok', 'tudo certo');
+                })
+                .catch((error) => {
+                    Alert.alert('Desculpe', 'Não foi possivel criar sua conta.');
+                });
         } else {
             Alert.alert('Ops', 'não foi possivel criar seu cadastro');
         }
@@ -35,7 +43,6 @@ export default function Signup() {
                     name="user"
                     keyboardType="email-address"
                     autoCapitalize='none'//faz tudo ser caixa baixa
-                    secureTextEntry={true}//ativa modo password
                     placeholder='Password'
                     onChangeText={(text) => { setPass(text) }}
                     style={styles.input}

@@ -1,65 +1,85 @@
-import React from 'react';
-import { View, Text, FlatList, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, Image, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
 
 import styles from './styles';
 
 
-const listProduct = [
-  {
-    id: '1',
-    name: 'TV',
-    price: '1275.27',
-    conditon: 'Novo'
-  },
-  {
-    id: '2',
-    name: 'TV',
-    price: '1275.27',
-    conditon: 'Novo'
-  },
-  {
-    id: '3',
-    name: 'TV',
-    price: '1275.27',
-    conditon: 'Novo'
-  }
-];
-
 function Item({ item }) {
-  return (
-    <TouchableOpacity>
-      <Image />
-      <View>
-        <Text>
-          Nome
-        </Text>
-        <Text>
-        </Text>
-        <Text>
-          Preço
-        </Text>
-        <Text>
-          Parcelamento
-        </Text>
-        <Text>
-          Condition
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
+    return (
+        <TouchableOpacity
+            style={styles.item}
+            onPress={() => navigation.navigate("InfoProduct")}
+        >
+            <Image style={styles.picture} source={{ uri: item.picture }} />
+            <View style={styles.title}>
+                <Text style={styles.item_title}>
+                    {item.name}
+                </Text>
+                <Text style={styles.item_price}>
+                    R$ {item.price.toFixed(2)}
+                </Text>
+                <Text style={styles.item_subdivision}>
+                    Parcelado em 12 x <Text style={styles.item_subdivision_detach}>
+                        R${(item.price / 12).toFixed(2)}
+                    </Text>
+                </Text>
+                <Text>
+                    {item.condition}
+                </Text>
+            </View>
+        </TouchableOpacity>
+    );
 }
 
 export default function List() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.text_results}>
-        Produtos encontrados: {listProduct.length}
-      </Text>
-      <FlatList
-        data={listProduct}
-        render={({item}) => <Item item={item} />}
-        keyExtractor={(item) => item.id}
-      />
-    </SafeAreaView >
-  );
+
+
+    const listProduct = [
+        {
+            id: '2',
+            name: 'TV',
+            price: 1250.27,
+            condition: 'Novo',
+            picture: "https://www.casasbahia-imagens.com.br/Informatica/Notebook/55006647/1312426042/macbook-air-apple-core-i5-8gb-512gb-ssd-tela-retina-13-3-macos-mvh22bz-a-cinza-espacial-55006647.jpg"
+        },
+        {
+            id: '1',
+            name: 'TV2',
+            price: 1250.27,
+            condition: 'Novo',
+            picture: "https://www.casasbahia-imagens.com.br/Informatica/Notebook/55006647/1312426042/macbook-air-apple-core-i5-8gb-512gb-ssd-tela-retina-13-3-macos-mvh22bz-a-cinza-espacial-55006647.jpg"
+        },
+        {
+            id: '3',
+            name: 'TV 2',
+            price: 1250.27,
+            condition: 'Novo',
+            picture: "https://www.casasbahia-imagens.com.br/Informatica/Notebook/55006647/1312426042/macbook-air-apple-core-i5-8gb-512gb-ssd-tela-retina-13-3-macos-mvh22bz-a-cinza-espacial-55006647.jpg"
+        },
+        {
+            id: '4',
+            name: 'TV 2',
+            price: 1250.27,
+            condition: 'Novo',
+            picture: "https://www.casasbahia-imagens.com.br/Informatica/Notebook/55006647/1312426042/macbook-air-apple-core-i5-8gb-512gb-ssd-tela-retina-13-3-macos-mvh22bz-a-cinza-espacial-55006647.jpg"
+        }
+    ]
+    return (
+        <>
+            <Text style={styles.text_results}>
+                Produtos encontrados: {listProduct.length}
+            </Text>
+            <SafeAreaView style={styles.container}>
+                <FlatList
+                    data={listProduct}
+                    renderItem={({ item }) => (
+                        <Item
+                            item={item}
+                        />
+                    )}
+                    keyExtractor={item => item.id}
+                />
+            </SafeAreaView>
+        </>
+    );
 }

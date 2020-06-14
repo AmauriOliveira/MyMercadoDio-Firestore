@@ -17,10 +17,8 @@ export default function Home({ navigation }) {
                     Entrar
                 </Text>
             </Button>
-            <Button>
-                <Text
-                    style={styles.text_white}
-                    onPress={() => navigation.navigate('Signup')}>
+            <Button onPress={() => navigation.navigate('Signup')}>
+                <Text style={styles.text_white}>
                     Criar Conta
                 </Text>
             </Button>
