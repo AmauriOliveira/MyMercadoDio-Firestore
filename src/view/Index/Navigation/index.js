@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { EvilIcons, Feather } from '@expo/vector-icons';
 
 import Main from '../Main';
+import List from '../List';
 
 const Stack = createStackNavigator();
 
@@ -55,12 +56,18 @@ const optionsHeader = ({ navigation }) => ({
 
 export default function Navigation() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="List">
       <Stack.Screen
         name="Main"
         component={Main}
         options={optionsHeader}
       />
+      <Stack.Screen
+        name="List"
+        component={List}
+        options={optionsHeader}
+      />
+
     </Stack.Navigator>
   );
 }
