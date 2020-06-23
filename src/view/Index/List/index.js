@@ -34,8 +34,38 @@ function Item({ item }) {
 
 export default function List() {
 
+    const listProduct = [
+        {
+            id: '2',
+            name: 'TV',
+            price: 1250.27,
+            condition: 'Novo',
+            picture: "https://www.casasbahia-imagens.com.br/Informatica/Notebook/55006647/1312426042/macbook-air-apple-core-i5-8gb-512gb-ssd-tela-retina-13-3-macos-mvh22bz-a-cinza-espacial-55006647.jpg"
+        },
+        {
+            id: '1',
+            name: 'TV2',
+            price: 1250.27,
+            condition: 'Novo',
+            picture: "https://www.casasbahia-imagens.com.br/Informatica/Notebook/55006647/1312426042/macbook-air-apple-core-i5-8gb-512gb-ssd-tela-retina-13-3-macos-mvh22bz-a-cinza-espacial-55006647.jpg"
+        },
+        {
+            id: '3',
+            name: 'TV 2',
+            price: 1250.27,
+            condition: 'Novo',
+            picture: "https://www.casasbahia-imagens.com.br/Informatica/Notebook/55006647/1312426042/macbook-air-apple-core-i5-8gb-512gb-ssd-tela-retina-13-3-macos-mvh22bz-a-cinza-espacial-55006647.jpg"
+        },
+        {
+            id: '4',
+            name: 'TV 2',
+            price: 1250.27,
+            condition: 'Novo',
+            picture: "https://www.casasbahia-imagens.com.br/Informatica/Notebook/55006647/1312426042/macbook-air-apple-core-i5-8gb-512gb-ssd-tela-retina-13-3-macos-mvh22bz-a-cinza-espacial-55006647.jpg"
+        }
+    ]
     const ref = Firebase.firestore().collection('product');
-
+//////////
     const product = ref.onSnapshot(querySnapshot => {
         const list = [];
         querySnapshot.forEach(doc => {
@@ -52,15 +82,15 @@ export default function List() {
 
         return list;
     });
-
+/////////////
     return (
         <>
             <Text style={styles.text_results}>
-                Produtos encontrados: {product.length}
+                Produtos encontrados: {listProduct.length}
             </Text>
             <SafeAreaView style={styles.container}>
                 <FlatList
-                    data={product}
+                    data={listProduct}
                     renderItem={({ item }) => (
                         <Item
                             item={item}
