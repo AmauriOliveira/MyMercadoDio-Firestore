@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image, Alert, Text } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { AntDesign } from "@expo/vector-icons";
 
@@ -10,17 +11,19 @@ import logoMP from '../../assets/mercado_pago.png';
 
 import styles from './styles';
 
-
 const Drawer = createDrawerNavigator();
 
 const HeaderDrawer = () => {
+    const route = useRoute();
+    const user = route.params.response;
+
     return (
         <View style={styles.drawer_header}>
             <View style={styles.user}>
                 <Profile />
                 <View>
                     <Text>
-                        Olá Amauri
+                        Olá {user.user.email}
                     </Text>
                     <Text>
                         Nivel 3 - Mercado Pontos

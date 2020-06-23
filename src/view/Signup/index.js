@@ -5,6 +5,7 @@ import styles from './styles';
 
 import logo from '../../../assets/logo.png';
 import Button from '../../components/Button';
+import { useNavigation } from '@react-navigation/native';
 import Firebase from '../../services/firebase';
 
 export default function Signup() {
@@ -12,12 +13,15 @@ export default function Signup() {
     const [user, setUser] = useState();
     const [pass, setPass] = useState();
 
+    const navigation = useNavigation();
+
     async function handleSignup() {
         if (user, pass) {
             Firebase.auth()
                 .createUserWithEmailAndPassword(user, pass)
                 .then((response) => {
-                    Alert.alert('Ok', 'tudo certo');
+                    Alert.alert('Ok', 'Conta criado com sucesso, favor fazer o login');
+                    navigation.navigate('Login');
                 })
                 .catch((error) => {
                     Alert.alert('Desculpe', 'Não foi possivel criar sua conta.');
